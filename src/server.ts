@@ -1,15 +1,22 @@
 import initDb from './lib/db';
+import initRoutes from './routes';
 import initServices from './services';
 import logger from './lib/logger';
-import logEvents from './lib/logger/events';
+import express from 'express';
 
 async function run() {
   const db = await initDb();
-  const services = await initServices({db});
+  await initServices({db});
 
-  logger.info(
-    'this is the hook'
-  );
+  const port = 3000;
+  const app = express();
+
+  const routes = await initRoutes();
+  app.use(routes);
+
+  app.listen(port, () => {
+    logger.info('webserver listening', {port});
+  });
 }
 
 run()

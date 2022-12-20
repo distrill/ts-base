@@ -28,7 +28,7 @@
     "@types/winston": "^2.4.4",
     "@types/ws": "^8.2.2",
     "@vscode/sqlite3": "^5.0.7",
-    "bh-modelbase": "^3.0.2",
+    "bh-modelbase": "^5.0.14",
     "express": "^4.17.3",
     "knex": "^1.0.1",
     "uuid": "^8.3.2",

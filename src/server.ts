@@ -1,4 +1,4 @@
-import initDb from './lib/db';
+import {initDb} from './lib/db';
 import initRoutes from './routes';
 import initServices from './services';
 import logger from './lib/logger';
@@ -14,11 +14,12 @@ async function run() {
   const routes = await initRoutes();
   app.use(routes);
 
-  const {app: {port}} = config;
+  const {
+    app: {port},
+  } = config;
   app.listen(port, () => {
     logger.info('webserver listening', {port});
   });
 }
 
-run()
-  .catch((err) => console.error('ERRR', err));
+run().catch((err) => console.error('ERRR', err));

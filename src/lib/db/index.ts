@@ -1,6 +1,6 @@
-import knex from 'knex';
+import knex, {Knex} from 'knex';
 import config from '../../config/db.config';
 
-export default async () => {
+export async function initDb(): Promise<Knex> {
   return knex(config);
-};
+}
